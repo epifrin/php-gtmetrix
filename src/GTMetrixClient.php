@@ -242,6 +242,7 @@ class GTMetrixClient {
 			$test->setConnectDuration($testStatus['results']['connect_duration']);
 			$test->setBackendDuration($testStatus['results']['backend_duration']);
 			$test->setFirstPaintTime($testStatus['results']['first_paint_time']);
+			$test->setFirstContentfulPaintTime($testStatus['results']['first_contentful_paint_time']);
 			$test->setDomInteractiveTime($testStatus['results']['dom_interactive_time']);
 			$test->setDomContentLoadedTime($testStatus['results']['dom_content_loaded_time']);
 			$test->setDomContentLoadedDuration($testStatus['results']['dom_content_loaded_duration']);
