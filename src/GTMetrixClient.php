@@ -182,12 +182,13 @@ class GTMetrixClient {
 	 * @param null|string   $browser
 	 * @param null|string   $httpUser
 	 * @param null|string   $httpPassword
+	 * @param array		$xParams
 	 *
 	 * @return GTMetrixTest
 	 * @throws GTMetrixConfigurationException
 	 * @throws GTMetrixException
 	 */
-	public function startTest($url, $location = null, $browser = null, $httpUser = null, $httpPassword = null) {
+	public function startTest($url, $location = null, $browser = null, $httpUser = null, $httpPassword = null, array $xParams = []) {
 
 		$data = array();
 		$data['url'] = $url;
@@ -203,6 +204,9 @@ class GTMetrixClient {
 		if ($httpPassword) {
 			$data['login-pass'] = $httpPassword;
 		}
+		if ($xParams) {
+            		$data = array_merge($data, $xParams);
+        	}
 		$result = $this->apiCall('/test', $data);
 
 		$test = new GTMetrixTest();
